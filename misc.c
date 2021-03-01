@@ -80,26 +80,26 @@ node *node_init()
     return n;
 }
 
-const char *
-_to_ascii_str(const char *ch)
-{
-    char *nums = (char *)malloc(sizeof(char) * 256);
-    char num[3];
-    const char *p = ch;
-    while (*p != '\0')
-    {
-        if (*p & CASEBIT)
-            sprintf(num, "%d", *p - LOWEROFF);
-        else if (!(*p & CASEBIT))
-        {
-            sprintf(num, "%d", *p - UPPEROFF);
-        }
-        strcat(nums, num);
-        strcat(nums, " ");
-        p++;
-    }
-    return nums;
-}
+// const char *
+// _to_ascii_str(const char *ch)
+// {
+//     char *nums = (char *)malloc(sizeof(char) * 256);
+//     char num[3];
+//     const char *p = ch;
+//     while (*p != '\0')
+//     {
+//         if (*p & CASEBIT)
+//             sprintf(num, "%d", *p - LOWEROFF);
+//         else if (!(*p & CASEBIT))
+//         {
+//             sprintf(num, "%d", *p - UPPEROFF);
+//         }
+//         strcat(nums, num);
+//         strcat(nums, " ");
+//         p++;
+//     }
+//     return nums;
+// }
 
 int _to_ascii_int(const char ch)
 {
