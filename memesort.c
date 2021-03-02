@@ -12,7 +12,6 @@ node **sort(char **unsorted)
     preinit = node_init();
     preinit->next = initpage;
 
-    // temp = malloc(sizeof(temp));
     temp.repeat = 0;
 
     char *p, *pp = NULL;

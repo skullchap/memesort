@@ -79,39 +79,18 @@ node *node_init()
     return n;
 }
 
-// const char *
-// _to_ascii_str(const char *ch)
-// {
-//     char *nums = (char *)malloc(sizeof(char) * 256);
-//     char num[3];
-//     const char *p = ch;
-//     while (*p != '\0')
-//     {
-//         if (*p & CASEBIT)
-//             sprintf(num, "%d", *p - LOWEROFF);
-//         else if (!(*p & CASEBIT))
-//         {
-//             sprintf(num, "%d", *p - UPPEROFF);
-//         }
-//         strcat(nums, num);
-//         strcat(nums, " ");
-//         p++;
-//     }
-//     return nums;
-// }
-
 int _to_ascii_int(const char ch)
 {
-    if ( ch & 0x18 == 0x10 || ch == 56 || ch = 57)
-        return (ch - 48);
-        if (ch & CASEBIT)
-            return (ch - LOWEROFF);
-        else if (!(ch & CASEBIT))
-        {
-            return (ch - UPPEROFF);
-        }
-        else
-            return -1;
+    if (ch >= 48 && ch <= 57)
+        return (ch + 5);
+    if (ch & CASEBIT)
+        return (ch - LOWEROFF);
+    else if (!(ch & CASEBIT))
+    {
+        return (ch - UPPEROFF);
+    }
+    else
+        return -1;
 }
 
 int cmpfunc(const void *a, const void *b)
