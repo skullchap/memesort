@@ -1,4 +1,4 @@
-#include "meme.h"
+#include "memesort.h"
 
 size_t BUF = 8192000;
 
@@ -42,8 +42,7 @@ void traverse(node **pp, node *nn)
 
         if (pp[nn->keys[n]] != NULL && pp[nn->keys[n]]->next != NULL)
             traverse(pp[nn->keys[n]]->next, pp[nn->keys[n]]);
-            free(pp[nn->keys[n]]);
-
+        free(pp[nn->keys[n]]);
     }
 }
 
@@ -103,14 +102,16 @@ node *node_init()
 
 int _to_ascii_int(const char ch)
 {
-    if (ch & CASEBIT)
-        return (ch - LOWEROFF);
-    else if (!(ch & CASEBIT))
-    {
-        return (ch - UPPEROFF);
-    }
-    else
-        return -1;
+    if ( ch & 0x18 == 0x10 || ch == 56 || ch = 57)
+        return (ch - 48);
+        if (ch & CASEBIT)
+            return (ch - LOWEROFF);
+        else if (!(ch & CASEBIT))
+        {
+            return (ch - UPPEROFF);
+        }
+        else
+            return -1;
 }
 
 int cmpfunc(const void *a, const void *b)
