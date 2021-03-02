@@ -102,16 +102,17 @@ node *node_init()
 
 int _to_ascii_int(const char ch)
 {
-    if ( ch & 0x18 == 0x10 || ch == 56 || ch == 57)
-        return (ch - 48);
-        if (ch & CASEBIT)
-            return (ch - LOWEROFF);
-        else if (!(ch & CASEBIT))
-        {
-            return (ch - UPPEROFF);
-        }
-        else
-            return -1;
+    if (ch >= 48 && ch <= 57) // 0 to 9 in ascii
+        // return (ch - 48);
+        return (ch + 5);
+    if (ch & CASEBIT)
+        return (ch - LOWEROFF);
+    else if (!(ch & CASEBIT))
+    {
+        return (ch - UPPEROFF);
+    }
+    else
+        return -1;
 }
 
 int cmpfunc(const void *a, const void *b)
