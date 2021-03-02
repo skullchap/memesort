@@ -8,10 +8,10 @@
 
 #define CASEBIT 0x20
 #define UPPEROFF 64 // yes its 64, so 'A'(65) will take place at 1 in array and 0 will stay empty
-#define LOWEROFF 70
+#define LOWEROFF 96
 #define WORDLEN 128
 #define BUFSIZE 8192000
-#define ARR 63
+#define ARR 27
 
 #define _to_ascii(X) _Generic((X),             \
                               char             \
