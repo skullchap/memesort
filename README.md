@@ -26,3 +26,6 @@ time ./a.out < <(head -n 1000000 somefilewithwords.txt)
 * Needs proper explaination, visalisation of how data structure and whole sorting works. Sometimes even i get confused.
 * Has huge memory footprint, probably leaks.. definitively needs further optimisations.
 * Multi-threading support. For now it's single-threaded.
+
+# License:
+### GNU General Public License v3.0
