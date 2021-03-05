@@ -24,7 +24,7 @@ void traverse(node **pp, node *nn)
                 printf("%s\n", pp[nn->keys[n]]->kword);
                 r--;
             } while (r > 0);
-            free(pp[nn->keys[n]]->kword);
+            // free(pp[nn->keys[n]]->kword);
             pp[nn->keys[n]]->kword = NULL;
         }
 
@@ -36,13 +36,13 @@ void traverse(node **pp, node *nn)
                 printf("%s\n", pp[nn->keys[n]]->word);
                 r--;
             } while (r > 0);
-            free(pp[nn->keys[n]]->word);
+            // free(pp[nn->keys[n]]->word);
             pp[nn->keys[n]]->word = NULL;
         }
 
         if (pp[nn->keys[n]] != NULL && pp[nn->keys[n]]->next != NULL)
             traverse(pp[nn->keys[n]]->next, pp[nn->keys[n]]);
-        free(pp[nn->keys[n]]);
+        // free(pp[nn->keys[n]]);
     }
 }
 
