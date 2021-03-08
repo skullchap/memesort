@@ -24,8 +24,6 @@ void traverse(node **pp, node *nn)
                 printf("%s\n", pp[nn->keys[n]]->kword);
                 r--;
             } while (r > 0);
-            // free(pp[nn->keys[n]]->kword);
-            // pp[nn->keys[n]]->kword = NULL;
         }
 
         if (pp[nn->keys[n]] != NULL && pp[nn->keys[n]]->word != NULL)
@@ -36,8 +34,6 @@ void traverse(node **pp, node *nn)
                 printf("%s\n", pp[nn->keys[n]]->word);
                 r--;
             } while (r > 0);
-            // free(pp[nn->keys[n]]->word);
-            // pp[nn->keys[n]]->word = NULL;
         }
 
         if (pp[nn->keys[n]] != NULL && pp[nn->keys[n]]->next != NULL)
@@ -45,16 +41,6 @@ void traverse(node **pp, node *nn)
         free(pp[nn->keys[n]]);
     }
     free(pp);
-}
-
-void movestr(char **src, char **dst)
-{
-    if (*dst != NULL)
-        free(*dst);
-    *dst = malloc(strlen(*src) + 1);
-    strncpy(*dst, *src, (strlen(*src) + 1));
-    free(*src);
-    *src = NULL;
 }
 
 void copystr(char **dst, char *src)
@@ -80,7 +66,7 @@ node *node_init()
     return n;
 }
 
-int _to_ascii_int(const char ch)
+int _ascii_to_index(const char ch)
 {
     if (ch >= 48 && ch <= 57) // 0 to 9 in ascii
         return (ch - 48);
