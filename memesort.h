@@ -33,7 +33,6 @@ struct
 //PROTOTYPES
 int _ascii_to_index(const char ch);
 void traverse(node **pp, node *nn);
-void movestr(char **src, char **dst);
 void copystr(char **dst, char *src);
 node **page_init();
 node *node_init();
