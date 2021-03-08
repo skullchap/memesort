@@ -82,6 +82,8 @@ node *node_init()
 
 int _to_ascii_int(const char ch)
 {
+    if (ch >= 48 && ch <= 57) // 0 to 9 in ascii
+        return (ch - 48);
     if (ch & CASEBIT)
         return (ch - LOWEROFF);
     else if (!(ch & CASEBIT))
