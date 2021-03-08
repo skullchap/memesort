@@ -13,20 +13,6 @@
 #define BUFSIZE 8192000
 #define ARR 36
 
-#define _to_ascii(X) _Generic((X),             \
-                              char             \
-                              : _to_ascii_int, \
-                                const char     \
-                              : _to_ascii_int, \
-                                int            \
-                              : _to_ascii_int, \
-                                char *         \
-                              : _to_ascii_str, \
-                                char **        \
-                              : _to_ascii_str)(X)
-
-#define member_size(type, member) sizeof(((type *)0)->member)
-
 typedef struct node
 {
   char *word;
@@ -45,8 +31,7 @@ struct
 } temp;
 
 //PROTOTYPES
-const char *_to_ascii_str(const char *ch);
-int _to_ascii_int(const char ch);
+int _ascii_to_index(const char ch);
 void traverse(node **pp, node *nn);
 void movestr(char **src, char **dst);
 void copystr(char **dst, char *src);

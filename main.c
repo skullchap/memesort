@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     flist = sort(unsort_strs);
     traverse(flist, preinit);
 
+// NUKE
     for (int i = 0; i < wordcount; i++)
     {
         if (unsort_strs[i] != NULL)
