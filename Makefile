@@ -1,4 +1,4 @@
 all:
-	gcc -o a.out main.c misc.c memesort.c -O3
+	gcc -o a.out main.c misc.c memesort.c -Wall -O3
 debug:
-	gcc -o a.out main.c misc.c memesort.c -O0 -g
+	gcc -o a.out main.c misc.c memesort.c -Wall -O0 -g
