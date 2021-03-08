@@ -25,7 +25,7 @@ void traverse(node **pp, node *nn)
                 r--;
             } while (r > 0);
             // free(pp[nn->keys[n]]->kword);
-            pp[nn->keys[n]]->kword = NULL;
+            // pp[nn->keys[n]]->kword = NULL;
         }
 
         if (pp[nn->keys[n]] != NULL && pp[nn->keys[n]]->word != NULL)
@@ -37,13 +37,14 @@ void traverse(node **pp, node *nn)
                 r--;
             } while (r > 0);
             // free(pp[nn->keys[n]]->word);
-            pp[nn->keys[n]]->word = NULL;
+            // pp[nn->keys[n]]->word = NULL;
         }
 
         if (pp[nn->keys[n]] != NULL && pp[nn->keys[n]]->next != NULL)
             traverse(pp[nn->keys[n]]->next, pp[nn->keys[n]]);
-        // free(pp[nn->keys[n]]);
+        free(pp[nn->keys[n]]);
     }
+    free(pp);
 }
 
 void movestr(char **src, char **dst)

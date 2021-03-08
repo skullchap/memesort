@@ -61,3 +61,4 @@ extern int wordcount;
 extern int trav_level;
 
 extern node *preinit;
+extern node **initpage;

@@ -1,16 +1,16 @@
 #include "memesort.h"
 
 node *preinit = NULL;
+node **initpage = NULL;
 
 node **sort(char **unsorted)
 {
-    node **initpage = page_init();
+    preinit = node_init();
+    initpage = page_init();
+    preinit->next = initpage;
     node **page = initpage;
     node **previous_page = NULL;
     node **next_page = NULL;
-
-    preinit = node_init();
-    preinit->next = initpage;
 
     temp.repeat = 0;
 
@@ -67,7 +67,7 @@ node **sort(char **unsorted)
                         page[j]->repeat++;
                     }
 
-                    page[j]->next = page_init();
+                    page[j]->next = page_init(); // !!!!!!!!!!!!!!!!!!!!!!!!!!!
                     previous_page = page;
                     if (temp.word != NULL)
                         p = &temp.word[level];
@@ -143,29 +143,33 @@ node **sort(char **unsorted)
                     page[j]->repeat++;
                 }
                 else
-                {
-                    page[j]->repeat++;
+                {   // !!!!!
+                    // page[j]->repeat++;
+                    page[j]->kword = pp;
+                    page[j]->keyrepeat++;
                 }
 
                 previous_page = page;
                 break;
             }
 
-            if (page[j] != NULL && page[j]->word != NULL || page[j]->kword != NULL)
+            if (page[j] != NULL && page[j]->word != NULL || page[j]->kword != NULL) // !!!!
             {
                 if (page[j]->repeat != 0)
                 {
-                    if (page[j]->word == pp)
+                    if (page[j]->word == pp || strcmp(page[j]->word, pp) == 0)
                     {
                         page[j]->repeat++;
+                        break;
                     }
                 }
 
                 if (page[j]->keyrepeat != 0)
                 {
-                    if (page[j]->kword == pp)
+                    if (page[j]->kword == pp || strcmp(page[j]->kword, pp) == 0)
                     {
                         page[j]->keyrepeat++;
+                        break;
                     }
                 }
             }
