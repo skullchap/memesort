@@ -20,4 +20,12 @@ int main(int argc, char *argv[])
 
     flist = sort(unsort_strs);
     traverse(flist, preinit);
+
+    for (int i = 0; i < wordcount; i++)
+    {
+        if (unsort_strs[i] != NULL)
+            free(unsort_strs[i]);
+    }
+    free(unsort_strs);
+    free(preinit);
 }
