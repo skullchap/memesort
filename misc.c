@@ -68,14 +68,14 @@ node *node_init()
 
 int _ascii_to_index(const char ch)
 {
-    if (ch >= 48 && ch <= 57) // 0 to 9 in ascii
-        return (ch - 48);
     if (ch & CASEBIT)
         return (ch - LOWEROFF);
     else if (!(ch & CASEBIT))
     {
         return (ch - UPPEROFF);
     }
+    else if (ch >= 48 && ch <= 57) // 0 to 9 in ascii
+        return (ch - 48);
     else
         return -1;
 }
