@@ -8,7 +8,7 @@ int wordcount = 0;
 
 void traverse(node **pp, node *nn)
 {
-    qsort(nn->keys, nn->kqty, sizeof(int), cmpfunc); //kinda cheated with qsort in traverse
+    memenumsort(nn->keys, &nn->kqty);
 
     for (int n = 0; n < nn->kqty; n++)
     {
@@ -83,4 +83,25 @@ int _ascii_to_index(const char ch)
 int cmpfunc(const void *a, const void *b)
 {
     return (*(int *)a - *(int *)b);
+}
+
+void memenumsort(int *src_arr, int *qty)
+{
+    int dst_arr[ARR] = {0};
+    int *ptr = src_arr;
+
+    for (int i = 0; i < *qty; i++)
+    {
+        dst_arr[*ptr] = *ptr;
+        ptr++;
+    }
+    int j = 0;
+    for (int i = 0; i < ARR; i++)
+    {
+        if (dst_arr[i] != 0)
+        {
+            src_arr[j] = dst_arr[i];
+            j++;
+        }
+    }
 }

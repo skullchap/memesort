@@ -7,8 +7,8 @@
 #include <string.h>
 
 #define CASEBIT 0x20
-#define UPPEROFF 64+9 // yes its 64, so 'A'(65) will take place at 1 in array and 0 will stay empty
-#define LOWEROFF 96+9
+#define UPPEROFF 64 + 9 // yes its 64, so 'A'(65) will take place at 1 in array and 0 will stay empty
+#define LOWEROFF 96 + 9
 #define WORDLEN 128
 #define BUFSIZE 8192000
 #define ARR 36
@@ -38,6 +38,7 @@ node **page_init();
 node *node_init();
 node **sort(char **unsorted);
 int cmpfunc(const void *a, const void *b);
+void memenumsort(int *src_arr, int *qty);
 
 extern size_t BUF;
 extern char **unsort_strs;
